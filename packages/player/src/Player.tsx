@@ -98,12 +98,12 @@ export const PlayerFn = <T,>(
 	}: PlayerProps<T>,
 	ref: MutableRefObject<PlayerRef>
 ) => {
-	if (typeof window !== 'undefined') {
-		// eslint-disable-next-line react-hooks/rules-of-hooks
-		useLayoutEffect(() => {
+	
+	useLayoutEffect(() => {
+		if(typeof window !== 'undefined') {
 			window.remotion_isPlayer = true;
-		}, []);
-	}
+		}
+	}, []);
 
 	// @ts-expect-error
 	if (componentProps.defaultProps !== undefined) {
